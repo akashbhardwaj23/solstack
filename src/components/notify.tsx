@@ -1,8 +1,10 @@
 "use client";
 import { motion, useAnimate } from "motion/react";
+import { useState } from "react";
 
 export default function NotifyComponents() {
   const [scope, animate] = useAnimate();
+  const [email, setEmail] = useState('');
   const startAnimating = async () => {
     animate(
       ".text",
@@ -113,6 +115,8 @@ export default function NotifyComponents() {
 
 
   const sendMail = () => {
+    if(!email.trim()) return
+
     startSendAnimate()
   }
 
@@ -133,6 +137,8 @@ export default function NotifyComponents() {
       <motion.div className="relative flex justify-center items-center">
         <input
           type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           style={{
             width: "0rem",
             padding: "0px",
