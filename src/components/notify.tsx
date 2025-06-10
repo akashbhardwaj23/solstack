@@ -29,7 +29,7 @@ export default function NotifyComponents() {
       "input",
       {
         width: "24rem",
-        paddingRight: 16,
+        paddingRight: 96,
         paddingLeft: 16,
       },
       {
@@ -64,22 +64,24 @@ export default function NotifyComponents() {
   };
 
   const startSendAnimate = async () => {
-    await animate(
-      ".mailText",
-      {
-        display: "none",
-      },
-      {
-        duration: 0.1,
-        ease: "easeInOut",
-      }
-    );
+   
 
     animate(
       "svg",
       {
         opacity: 1,
         display: "block",
+      },
+      {
+        duration: 0.1,
+        delay : 0.6,
+        ease: "easeInOut",
+      }
+    );
+    await animate(
+      ".mailText",
+      {
+        display: "none",
       },
       {
         duration: 0.1,
@@ -107,6 +109,7 @@ export default function NotifyComponents() {
       },
       {
         duration: 0.3,
+        delay : 0.3,
         ease: "easeInOut",
       }
     );
@@ -189,14 +192,6 @@ export default function NotifyComponents() {
             </path>
           </motion.svg>
         </button>
-
-        {/* <motion.div
-          style={{
-            opacity: 0,
-            scale: 0,
-          }}
-          className="spinning-circle h-20 w-20 rounded-full bg-green-500 absolute inset-0 m-auto"
-        ></motion.div> */}
       </motion.div>
     </div>
   );
